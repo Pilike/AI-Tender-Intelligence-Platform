@@ -1,10 +1,10 @@
 # AI Tender Intelligence Platform
 
-Sanitized portfolio case study for an AI-powered public tender discovery, document intelligence, matching, and delivery platform.
+Anonymized portfolio case study for an AI-powered tender discovery, document intelligence, matching, and delivery platform.
 
-This repository summarizes a production system I built while working on Noga, a tender intelligence platform associated with Locwise. The original product helps Israeli businesses decide which public tenders are worth pursuing by combining web crawling, document AI, LLM summarization, vector matching, client profiles, CRM workflows, email, and WhatsApp delivery.
+This repository is a public case study only. It summarizes the type of systems work I performed on an employer-associated production project while intentionally excluding source code, database schema, workflow exports, configuration, customer information, product names, implementation logic, and original repository history.
 
-This public repo is intentionally not a runnable copy of the production system. It is a safe technical portfolio artifact: architecture notes, representative schema, workflow skeletons, and small implementation samples.
+It is not an open-source version of the product and cannot be used to recreate the production system.
 
 ## Problem
 
@@ -21,13 +21,11 @@ The platform automated the full lifecycle:
 
 ## What I Built
 
-- Designed the end-to-end system architecture across ASP.NET Core, Supabase/PostgreSQL, n8n, GCP services, LLM APIs, WhatsApp Cloud API, Fireberry CRM, email delivery, and payment/onboarding flows.
-- Built crawler and ingestion workflows for source discovery, fetch policy routing, source-specific extraction, document upload, retry tracking, and tender normalization.
-- Designed the Supabase/PostgreSQL data model for clients, tenders, documents, summaries, matches, WhatsApp sessions, onboarding state, automation configs, domain events, and CRM identity mapping.
-- Implemented a hybrid matching engine using PostgreSQL RPC functions, vector similarity, subscription-aware thresholds, LLM evaluation, explainable scoring, and match deduplication.
-- Built multi-stage AI document processing workflows for summaries, structured fields, requirements, deadlines, certifications, risk notes, financial terms, and service-role extraction.
-- Integrated CRM, WhatsApp, email, portal actions, and background automations through event-driven database patterns.
-- Supported production operations with migrations, admin tooling, workflow exports, smoke tests, monitoring-friendly tables, and deployment pipelines.
+- Participated in end-to-end solution design across discovery, architecture, implementation, delivery, and post-launch support.
+- Helped design workflow automation for tender discovery, document processing, matching, delivery, and operational follow-up.
+- Translated messy business requirements into structured system areas, user journeys, data responsibilities, and support workflows.
+- Worked hands-on with APIs, databases, cloud services, workflow automation, CRM integration, messaging/email delivery, and LLM-based processing.
+- Supported production operations through debugging, documentation, testing, and iterative improvement.
 
 I used AI as a development accelerator, but I owned the solution design, integration choices, debugging, data modeling, delivery, and production support.
 
@@ -35,48 +33,36 @@ I used AI as a development accelerator, but I owned the solution design, integra
 
 ```mermaid
 flowchart LR
-    A[Public tender sources] --> B[n8n crawler workflows]
-    B --> C[Fetch policy router]
-    C --> D[Extractor service on Cloud Run]
-    D --> E[(Supabase Postgres)]
-    E --> F[Document upload pipeline]
-    F --> G[Document AI and text extraction]
-    G --> H[LLM summarization]
+    A[Public tender sources] --> B[Discovery and ingestion]
+    B --> C[Document processing]
+    C --> D[Structured opportunity records]
+    D --> E[Matching and qualification]
+    E --> F[Human review and delivery]
+    F --> G[Client communication]
+    F --> H[Operational follow-up]
     H --> E
-    E --> I[Hybrid matching engine]
-    I --> J[Explainable client matches]
-    J --> K[Portal dashboard]
-    J --> L[Email reports]
-    J --> M[WhatsApp notifications]
-    J --> N[CRM follow-up]
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the sanitized system design.
+See [docs/architecture.md](docs/architecture.md) for the public-safe system overview.
 
 ## Repository Map
 
-- [docs/architecture.md](docs/architecture.md) - platform architecture and event flows.
-- [docs/data-model.md](docs/data-model.md) - sanitized data model and table responsibilities.
-- [docs/workflows.md](docs/workflows.md) - crawler, document AI, matching, CRM, and WhatsApp workflow descriptions.
-- [docs/security-and-sanitization.md](docs/security-and-sanitization.md) - what was removed and why.
-- [docs/project-review.md](docs/project-review.md) - sanitized review of the original system and what it proves.
-- [docs/improvement-roadmap.md](docs/improvement-roadmap.md) - practical hardening and portfolio improvement backlog.
+- [docs/architecture.md](docs/architecture.md) - high-level system overview.
+- [docs/data-model.md](docs/data-model.md) - conceptual data responsibilities without table names or schema.
+- [docs/workflows.md](docs/workflows.md) - workflow families and public-safe boundaries.
+- [docs/security-and-sanitization.md](docs/security-and-sanitization.md) - what is intentionally excluded.
+- [docs/project-review.md](docs/project-review.md) - portfolio positioning and skills demonstrated.
+- [docs/improvement-roadmap.md](docs/improvement-roadmap.md) - safe public portfolio improvements.
 - [docs/portfolio-copy.md](docs/portfolio-copy.md) - GitHub, LinkedIn, and resume-ready project copy.
-- [examples/schema/sanitized_schema.sql](examples/schema/sanitized_schema.sql) - representative PostgreSQL schema excerpt.
-- [examples/sql/rank_open_tenders_for_client.sql](examples/sql/rank_open_tenders_for_client.sql) - simplified hybrid ranking RPC.
-- [examples/sql/upsert_client_match.sql](examples/sql/upsert_client_match.sql) - simplified explainable match upsert.
-- [examples/data](examples/data) - synthetic client and tender records for explanation only.
-- [examples/workflows](examples/workflows) - sanitized workflow skeletons.
-- [examples/code](examples/code) - small representative C# integration snippets.
 
 ## What Is Not Included
 
-- Production source code and original git history.
-- Real Supabase project references, service-role keys, anon keys, database passwords, API keys, OAuth tokens, CRM tokens, WhatsApp tokens, iCredit credentials, webhook URLs, or cloud project identifiers.
-- Raw n8n or Make exports from production.
-- Real customer data, tender source credentials, CRM records, phone numbers, emails, or internal business rules.
-- Full production database schema, migration history, or deployment pipeline files.
+- Production source code, snippets, pseudocode, or original git history.
+- Database schema, migrations, table names, SQL functions, stored procedures, or query logic.
+- Workflow exports, workflow skeletons, node logic, webhook paths, credential names, or automation configuration.
+- Product names, employer/client names, customer records, phone numbers, emails, financial records, or business-specific rules.
+- Source-specific extraction strategies, ranking formulas, prompts, templates, deployment details, or operational runbooks.
 
 ## Skills Demonstrated
 
-Solutions engineering, business systems architecture, CRM implementation, workflow automation, API integration, data modeling, PostgreSQL, Supabase, pgvector, ASP.NET Core, n8n, GCP Cloud Run, Docker, LLM integration, Document AI, WhatsApp Cloud API, email automation, production support, and stakeholder-facing technical delivery.
+Solutions engineering, business systems architecture, CRM implementation, workflow automation, API integration, data modeling, cloud services, LLM integration, document processing, messaging/email delivery, production support, and stakeholder-facing technical delivery.

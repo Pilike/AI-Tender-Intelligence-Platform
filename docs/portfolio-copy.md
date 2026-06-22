@@ -2,26 +2,23 @@
 
 ## GitHub Description
 
-Sanitized case study of an AI tender intelligence platform: crawler workflows, document AI, LLM summaries, vector matching, Supabase/PostgreSQL, n8n, ASP.NET Core, CRM, email, and WhatsApp delivery.
+Anonymized case study of an AI tender intelligence and matching platform, focused on business problem, solution architecture, AI-assisted document processing, workflow automation, and client delivery.
 
 ## Project Summary
 
-Built a production AI procurement intelligence platform that automated the full lifecycle from tender discovery to analysis, client matching, and delivery. The platform helped service providers decide which public tenders were worth pursuing by combining web crawling, document AI, LLM summarization, structured data extraction, vector matching, client profiles, and multi-channel delivery.
+Worked on a production AI procurement intelligence platform that helped service providers decide which public opportunities were worth pursuing. The project combined discovery, document processing, business-profile matching, human-readable explanations, delivery workflows, and production support.
 
 ## Resume Bullets
 
-- Architected an AI tender intelligence platform spanning ASP.NET Core, Supabase/PostgreSQL, n8n, GCP, Docker, WhatsApp Cloud API, CRM integration, email delivery, and LLM APIs.
-- Built crawler and document pipelines for public tender discovery, HTML extraction, document upload, AI summarization, structured field extraction, retry tracking, and canonical tender upserts.
-- Designed a PostgreSQL data model for clients, tenders, documents, matches, WhatsApp sessions, onboarding state, automation configs, domain events, and CRM identity mapping.
-- Implemented a hybrid matching engine using PostgreSQL RPC functions, vector similarity, subscription-aware thresholds, service-role logic, LLM evaluation, deduplication, and explainable match output.
-- Delivered client-facing reports through portal views, email, WhatsApp notifications, and CRM-driven onboarding workflows.
+- Designed and implemented AI-powered business workflows for tender discovery, document processing, client matching, and delivery.
+- Translated business requirements into system architecture, data responsibilities, automation flows, support paths, and stakeholder-facing documentation.
+- Integrated databases, APIs, workflow automation, CRM-style records, cloud services, messaging/email channels, and LLM-based processing.
+- Built reviewable AI outputs that helped users understand fit, risk, and next steps for procurement opportunities.
+- Supported production operations through debugging, iteration, documentation, and post-launch support.
 
 ## Interview Talking Points
 
-- Why the system used Postgres as both application database and automation control plane.
-- How cost-aware crawling reduced unnecessary expensive fetches.
-- Why deterministic database ranking came before LLM evaluation.
-- How match explanations were stored for auditability and client trust.
-- How domain events reduced coupling between portal actions, CRM updates, WhatsApp templates, and payment/onboarding flows.
-- What had to be sanitized before sharing publicly.
-
+- How to turn a manual opportunity-review process into a structured business system.
+- Why AI outputs need explanation, review states, and operational guardrails.
+- How to balance automation with supportability when external systems and documents are messy.
+- How to discuss employer-associated work publicly without revealing confidential implementation details.
