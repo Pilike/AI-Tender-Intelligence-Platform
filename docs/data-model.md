@@ -1,6 +1,6 @@
 # Data Model
 
-This document describes the conceptual data responsibilities of the system. It intentionally avoids table names, schema details, relationships specific enough to recreate the database, SQL, indexes, functions, migrations, prompts, and private business logic.
+This document describes the conceptual data responsibilities behind the platform.
 
 ## Conceptual Areas
 
@@ -33,5 +33,3 @@ flowchart LR
 - **Separate delivery from matching:** an opportunity can be relevant before it is approved, sent, or followed up on.
 - **Track operational health:** support users need to know what ran, what failed, and what needs review.
 - **Protect external-system coupling:** integration IDs and operational metadata should not drive core business logic.
-
-No schema or implementation sample is published in this repository.

@@ -21,4 +21,4 @@ Worked on a production AI procurement intelligence platform that helped service 
 - How to turn a manual opportunity-review process into a structured business system.
 - Why AI outputs need explanation, review states, and operational guardrails.
 - How to balance automation with supportability when external systems and documents are messy.
-- How to discuss employer-associated work publicly without revealing confidential implementation details.
+- How to connect AI workflows to business decisions instead of producing disconnected automation.

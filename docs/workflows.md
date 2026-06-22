@@ -1,6 +1,6 @@
 # Workflow Design
 
-This document describes workflow families at a public-safe level. It intentionally excludes raw workflow exports, node logic, webhook paths, credential names, table names, prompts, exact branching, source-specific extraction logic, and any details that would allow the original system to be recreated.
+This document describes the workflow families that made the platform useful in production.
 
 ## Workflow Families
 
@@ -13,14 +13,9 @@ This document describes workflow families at a public-safe level. It intentional
 | Delivery | Send approved opportunities to users. | Clear formatting, channel fit, delivery tracking, and retry handling. |
 | Operations | Help admins see what ran, what failed, and what needs attention. | Support visibility, manual review paths, and exception handling. |
 
-## Why Workflows Were Not Published Raw
+## Design Principles
 
-Raw workflow exports often include:
-
-- Webhook UUIDs and endpoint paths.
-- Credential names and service identifiers.
-- Internal table names and private business logic.
-- External-system IDs, template names, and source-specific extraction strategies.
-- Enough detail to clone the employer's operational system.
-
-For hiring purposes, the useful signal is the ability to understand a business process and design reliable automation around it. That signal is preserved here without publishing implementation material.
+- Keep discovery, document processing, matching, delivery, and support as separate concerns.
+- Prefer structured AI outputs that can be reviewed, explained, and improved over opaque text blobs.
+- Treat failed external calls and ambiguous documents as expected operational cases, not surprises.
+- Connect automation to business outcomes: fewer missed opportunities, faster review, and clearer next steps.
