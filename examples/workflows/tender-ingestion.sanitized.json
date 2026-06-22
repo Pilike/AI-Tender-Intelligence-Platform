@@ -1,0 +1,56 @@
+{
+  "name": "Tender ingestion workflow skeleton",
+  "notImportable": true,
+  "sanitized": true,
+  "purpose": "Discover public tender pages, extract normalized tender records, and queue documents for processing.",
+  "redacted": [
+    "production webhook paths",
+    "credential names",
+    "source-specific extraction configs",
+    "private source URLs",
+    "customer data"
+  ],
+  "nodes": [
+    {
+      "name": "Scheduled trigger",
+      "type": "trigger",
+      "description": "Runs on a configured interval or admin-triggered webhook."
+    },
+    {
+      "name": "Load due sources",
+      "type": "postgres",
+      "description": "Reads active tender sources with crawl schedules and extraction config."
+    },
+    {
+      "name": "Fetch policy router",
+      "type": "function",
+      "description": "Attempts direct HTTP first, then escalates to a rendering/proxy provider only when required."
+    },
+    {
+      "name": "HTML extractor service",
+      "type": "http",
+      "description": "Sends raw HTML and source config to a containerized extractor service."
+    },
+    {
+      "name": "Normalize tender payload",
+      "type": "function",
+      "description": "Validates title, buyer, dates, links, documents, and source trace fields."
+    },
+    {
+      "name": "Upsert tender",
+      "type": "postgres",
+      "description": "Calls a PostgreSQL upsert function using source id and source item key for idempotency."
+    },
+    {
+      "name": "Queue documents",
+      "type": "postgres",
+      "description": "Creates pending document rows for downstream download and extraction."
+    },
+    {
+      "name": "Record run status",
+      "type": "postgres",
+      "description": "Writes counts, errors, and timing data for admin review and retries."
+    }
+  ]
+}
+

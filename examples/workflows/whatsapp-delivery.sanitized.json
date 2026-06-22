@@ -1,0 +1,51 @@
+{
+  "name": "WhatsApp delivery workflow skeleton",
+  "notImportable": true,
+  "sanitized": true,
+  "purpose": "Send approved match summaries and onboarding messages through WhatsApp while preserving session history.",
+  "redacted": [
+    "phone number IDs",
+    "access tokens",
+    "template names tied to production",
+    "customer phone numbers",
+    "callback URLs"
+  ],
+  "nodes": [
+    {
+      "name": "Webhook verification",
+      "type": "http-trigger",
+      "description": "Handles provider verification and inbound status callbacks."
+    },
+    {
+      "name": "Resolve client session",
+      "type": "postgres",
+      "description": "Finds or creates a WhatsApp session by provider id and mapped client id."
+    },
+    {
+      "name": "Load approved matches",
+      "type": "postgres",
+      "description": "Reads approved, undelivered matches for a client."
+    },
+    {
+      "name": "Build template payload",
+      "type": "function",
+      "description": "Formats summary text, tender link, deadline, and recommendation into a provider-safe template payload."
+    },
+    {
+      "name": "Send provider request",
+      "type": "http",
+      "description": "Calls WhatsApp Cloud API using environment-managed credentials."
+    },
+    {
+      "name": "Store message",
+      "type": "postgres",
+      "description": "Persists outbound message id, direction, template metadata, and provider status."
+    },
+    {
+      "name": "Mark delivered",
+      "type": "postgres",
+      "description": "Updates match delivery state after provider acceptance."
+    }
+  ]
+}
+

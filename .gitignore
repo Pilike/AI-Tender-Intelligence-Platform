@@ -1,0 +1,27 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+bin/
+obj/
+dist/
+build/
+test-results/
+
+# Secrets and environment config
+.env
+.env.*
+appsettings.json
+appsettings.*.json
+*.secrets.*
+*.local.*
+
+# Raw exports from production systems
+*.n8n.json
+*.make.json
+workflow-exports/
+production-exports/
+

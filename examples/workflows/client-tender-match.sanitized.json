@@ -1,0 +1,56 @@
+{
+  "name": "Client tender matching workflow skeleton",
+  "notImportable": true,
+  "sanitized": true,
+  "purpose": "Rank candidate tenders for a client, evaluate fit with an LLM, and store explainable match results.",
+  "redacted": [
+    "production prompt text",
+    "model routing keys",
+    "client profile data",
+    "raw LLM outputs",
+    "webhook paths"
+  ],
+  "nodes": [
+    {
+      "name": "Manual or scheduled trigger",
+      "type": "trigger",
+      "description": "Runs for one client, a batch of clients, or an admin-selected match refresh."
+    },
+    {
+      "name": "Load client context",
+      "type": "postgres",
+      "description": "Loads subscription tier, profile prompt, service roles, exclusion rules, and embedding metadata."
+    },
+    {
+      "name": "Rank candidates",
+      "type": "postgres-rpc",
+      "description": "Calls rank_open_tenders_for_client to retrieve a bounded candidate set."
+    },
+    {
+      "name": "LLM fit evaluation",
+      "type": "llm",
+      "description": "Scores fit, classifies the opportunity, and generates why-match, why-not, and risk bullets."
+    },
+    {
+      "name": "Normalize output",
+      "type": "function",
+      "description": "Coerces model output into schema-safe JSON and default values."
+    },
+    {
+      "name": "Upsert match",
+      "type": "postgres-rpc",
+      "description": "Stores explainable result using a deduplicating client/tender key."
+    },
+    {
+      "name": "Update run metrics",
+      "type": "postgres",
+      "description": "Stores counts for candidates seen, rejected, evaluated, and upserted."
+    },
+    {
+      "name": "Queue delivery",
+      "type": "postgres",
+      "description": "Marks approved matches for email, portal, or WhatsApp delivery."
+    }
+  ]
+}
+
